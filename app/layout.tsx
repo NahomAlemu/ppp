@@ -20,7 +20,7 @@ export default function RootLayout({
     if (typeof window !== "undefined" && window.location.hash) {
       router.replace("/");
     }
-  }, []);
+  }, [router]);
 
   return (
     <html lang="en" suppressHydrationWarning>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { companies } from "@/data";
-
+import Image from "next/image";
 const Clients = () => {
   return (
     <section
@@ -20,10 +20,10 @@ const Clients = () => {
             <React.Fragment key={company.id}>
               <div className="flex items-center gap-2">
                 {/* Company Logo */}
-                <img
+                <Image
                   src={company.img}
                   alt={`${company.name} Logo`}
-                  className="md:w-20 w-12 h-auto" // Adjusted width for better scaling
+                  className="md:w-20 w-12 h-auto"
                 />
               </div>
             </React.Fragment>
