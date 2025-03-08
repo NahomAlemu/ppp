@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-
 import Lottie from "react-lottie";
-
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { BackgroundGradientAnimation } from "./GradientBg";
@@ -92,6 +90,8 @@ export const BentoGridItem = ({
               src={img}
               alt={img}
               className={cn(imgClassName, "object-cover object-center ")}
+              width={500}
+              height={300}
             />
           )}
         </div>
@@ -106,6 +106,8 @@ export const BentoGridItem = ({
               alt={spareImg}
               //   width={220}
               className="object-cover object-center w-full h-full"
+              width={500} // Add this width
+              height={300}
             />
           )}
         </div>

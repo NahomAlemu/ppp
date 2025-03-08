@@ -24,6 +24,8 @@ const Clients = () => {
                   src={company.img}
                   alt={`${company.name} Logo`}
                   className="md:w-20 w-12 h-auto"
+                  width={80}
+                  height={80}
                 />
               </div>
             </React.Fragment>
