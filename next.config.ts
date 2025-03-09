@@ -1,22 +1,10 @@
-import { NextConfig } from "next";
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  reactStrictMode: true,
-
+  output: "export",
   images: {
     unoptimized: true,
   },
-
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
-  experimental: {},
 };
 
 export default nextConfig;
