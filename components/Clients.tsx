@@ -5,10 +5,7 @@ import { companies } from "@/data";
 import Image from "next/image";
 const Clients = () => {
   return (
-    <section
-      id="clients"
-      className="py-8 md:py-16" // Reduced padding for mobile devices
-    >
+    <section id="clients" className="py-2 md:py-4">
       {/* <h1 className="heading">
         Trusted by
         <span className="text-purple"> leading companies</span>
