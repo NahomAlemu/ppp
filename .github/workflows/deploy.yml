@@ -3,29 +3,32 @@ name: Deploy Next.js to AWS S3
 on:
   push:
     branches:
-      - main 
-  workflow_dispatch:  # Allows manual triggering of the workflow
+      - main
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  
-          cache: 'npm'
-      
+          node-version: "18"
+          cache: "npm"
+
       - name: Install dependencies
         run: npm ci
-      
+
       - name: Build Next.js app
-        run: npm run build
-        
+        run: |
+          echo '{"compilerOptions":{"jsx":"react-jsx"}}' > tsconfig.build.json
+          npx tsc --project tsconfig.build.json
+          npm run build
+
       - name: Export static files
         run: npm run export
 
@@ -35,7 +38,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-      
+
       - name: Deploy to S3
         run: |
           aws s3 sync ./out s3://${{ secrets.S3_BUCKET_NAME }} --delete
