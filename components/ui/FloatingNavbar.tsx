@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 interface NavItem {
   name: string;
   link: string;
-  icon?: JSX.Element;
+  icon?: React.ReactNode;
 }
 
 export const FloatingNav = ({
